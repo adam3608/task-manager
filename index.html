@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <button id="botaoMusica" onclick="tocarMusica()">
+    <span class="disco-css"></span>
+    Música
+  </button>
+
+  <audio id="audio" loop autoplay>
+    <source src="musica/YTDown_YouTube_Media_MX-iaTDEyGI_009_128k.mp3" type="audio/mpeg">
+  </audio>
+
+ 
+  <audio id="somClick"><source src="sons/adction.mp3" type="audio/mpeg"></audio>
+  <audio id="somComplete"><source src="sons/complete.mp3" type="audio/mpeg"></audio>
+  <audio id="somDelete"><source src="sons/delete.mp3" type="audio/mpeg"></audio>
+
+  <div class="container">
+
+    <h1>Minhas tarefas</h1>
+
+    <div class="status">
+      <p id="contador">0 pendentes • 0 concluídas</p>
+      <div class="barra">
+        <div id="progresso"></div>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <input type="text" id="inputTarefa" placeholder="Digite uma tarefa">
+      <input type="date" id="dataTarefa">
+      <input type="time" id="horarioTarefa">
+
+      <select id="prioridadeTarefa">
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+      </select>
+
+      <button onclick="adicionarTarefa()">Adicionar</button>
+    </div>
+
+    <div class="filtros">
+      <button onclick="filtrarTarefas('todas')">Todas</button>
+      <button onclick="filtrarTarefas('pendentes')">Pendentes</button>
+      <button onclick="filtrarTarefas('concluidas')">Concluídas</button>
+    </div>
+
+    <div class="acoes">
+      <button onclick="limparConcluidas()">Limpar concluídas</button>
+      <button onclick="modoFoco()">Modo foco</button>
+    </div>
+
+    <ul id="lista"></ul>
+
+  </div>
+<div id="paletaBox">
+  <button id="botaoPaleta" onclick="abrirPaletas()">
+    🎨 Paletas
+  </button>
+
+  <div id="paletas">
+    <div class="cor cor-original" onclick="trocarTema('original')"></div>
+    <div class="cor cor-red" onclick="trocarTema('red')"></div>
+    <div class="cor cor-green" onclick="trocarTema('green')"></div>
+    <div class="cor cor-orange" onclick="trocarTema('orange')"></div>
+    <div class="cor cor-pink" onclick="trocarTema('pink')"></div>
+    <div class="cor cor-black" onclick="trocarTema('black')"></div>
+  </div>
+</div>
+  </div>
+
+</div>
+<div id="paletaBox">
+  <button id="botaoPaleta" onclick="abrirPaletas()">
+    🎨 Paletas
+  </button>
+
+  <div id="paletas">
+    <div class="cor cor-original" onclick="trocarTema('original')"></div>
+    <div class="cor cor-red" onclick="trocarTema('red')"></div>
+    <div class="cor cor-green" onclick="trocarTema('green')"></div>
+    <div class="cor cor-orange" onclick="trocarTema('orange')"></div>
+    <div class="cor cor-pink" onclick="trocarTema('pink')"></div>
+    <div class="cor cor-black" onclick="trocarTema('black')"></div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

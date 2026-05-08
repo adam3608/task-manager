@@ -1,0 +1,695 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  overflow-x: hidden;
+
+  color: white;
+
+  transition:
+    background 0.5s ease,
+    --cor1 0.5s ease,
+    --cor2 0.5s ease;
+}
+
+
+/* =========================
+   TEMAS
+========================= */
+
+body.tema-original {
+  --cor1: #8b5cf6;
+  --cor2: #06b6d4;
+
+  background:
+    radial-gradient(circle at top left, #7c3aed 0, transparent 35%),
+    radial-gradient(circle at bottom right, #06b6d4 0, transparent 35%),
+    linear-gradient(135deg, #111827, #1e1b4b);
+}
+
+body.tema-red {
+  --cor1: #ef4444;
+  --cor2: #111111;
+
+  background:
+    radial-gradient(circle at top left, #ef4444 0, transparent 35%),
+    radial-gradient(circle at bottom right, #111111 0, transparent 35%),
+    linear-gradient(135deg, #1f1f1f, #450a0a);
+}
+
+body.tema-green {
+  --cor1: #22c55e;
+  --cor2: #14532d;
+
+  background:
+    radial-gradient(circle at top left, #22c55e 0, transparent 35%),
+    radial-gradient(circle at bottom right, #14532d 0, transparent 35%),
+    linear-gradient(135deg, #052e16, #022c22);
+}
+
+body.tema-orange {
+  --cor1: #f97316;
+  --cor2: #7c2d12;
+
+  background:
+    radial-gradient(circle at top left, #f97316 0, transparent 35%),
+    radial-gradient(circle at bottom right, #7c2d12 0, transparent 35%),
+    linear-gradient(135deg, #431407, #1c1917);
+}
+
+body.tema-pink {
+  --cor1: #ec4899;
+  --cor2: #6d28d9;
+
+  background:
+    radial-gradient(circle at top left, #ec4899 0, transparent 35%),
+    radial-gradient(circle at bottom right, #6d28d9 0, transparent 35%),
+    linear-gradient(135deg, #3b0764, #1e1b4b);
+}
+
+body.tema-black {
+  --cor1: #525252;
+  --cor2: #000000;
+
+  background:
+    radial-gradient(circle at top left, #525252 0, transparent 35%),
+    radial-gradient(circle at bottom right, #000000 0, transparent 35%),
+    linear-gradient(135deg, #020617, #111111);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: 520px;
+
+  background: rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  border-radius: 28px;
+
+  padding: 34px;
+
+  box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+
+  animation: aparecer 0.45s ease;
+}
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================
+   TITULO
+========================= */
+
+h1 {
+  margin-top: 0;
+
+  text-align: center;
+
+  font-size: 38px;
+
+  letter-spacing: -1px;
+
+  margin-bottom: 25px;
+}
+
+h1::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 4px;
+
+  margin: 12px auto 0;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--cor1), var(--cor2));
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  margin-bottom: 22px;
+}
+
+.status p {
+  text-align: center;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.barra {
+  width: 100%;
+
+  height: 10px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.12);
+
+  overflow: hidden;
+}
+
+#progresso {
+  width: 0%;
+
+  height: 100%;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+  transition: 0.35s;
+}
+
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.input-area {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select {
+  border: none;
+  outline: none;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.12);
+
+  color: white;
+
+  font-size: 15px;
+
+  transition: 0.25s;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+input:focus,
+select:focus {
+  transform: translateY(-1px);
+
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cor1) 35%, transparent);
+}
+
+select option {
+  color: black;
+}
+
+
+/* =========================
+   BOTÃO ADICIONAR
+========================= */
+
+.input-area button {
+  grid-column: span 2;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  box-shadow: 0 12px 25px color-mix(in srgb, var(--cor1) 35%, transparent);
+}
+
+.input-area button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
+.filtros,
+.acoes {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+.filtros button,
+.acoes button {
+  flex: 1;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.14);
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.filtros button:hover,
+.acoes button:hover {
+  background: rgba(255,255,255,0.24);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   LISTA
+========================= */
+
+ul {
+  list-style: none;
+
+  padding: 0;
+
+  margin-top: 24px;
+}
+
+
+/* =========================
+   ITEM
+========================= */
+
+li {
+  position: relative;
+
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.12);
+
+  border: 1px solid rgba(255,255,255,0.14);
+
+  border-radius: 18px;
+
+  padding: 16px;
+
+  margin-bottom: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: 0.25s;
+}
+
+li:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255,255,255,0.18);
+}
+
+li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+
+  width: 5px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, var(--cor1), var(--cor2));
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.tarefa-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  cursor: pointer;
+
+  padding-left: 10px;
+}
+
+.tarefa-info span {
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.tarefa-info small {
+  width: fit-content;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: color-mix(in srgb, var(--cor1) 30%, transparent);
+
+  color: white;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   CONCLUÍDA
+========================= */
+
+.concluida {
+  text-decoration: line-through;
+
+  opacity: 0.45;
+}
+
+
+/* =========================
+   REMOVER
+========================= */
+
+.botao-remover {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: crimson;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.botao-remover:hover {
+  transform: rotate(6deg) scale(1.08);
+}
+
+li.removendo {
+  transform: translateX(180px) scale(0.95);
+
+  opacity: 0;
+
+  filter: blur(3px);
+
+  transition: 0.35s ease;
+}
+
+
+/* =========================
+   BOTÃO MÚSICA
+========================= */
+
+#botaoMusica {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  border: none;
+
+  padding: 14px 18px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, var(--cor1), var(--cor2));
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--cor1) 35%, transparent);
+
+  transition: 0.25s;
+
+  z-index: 999;
+}
+
+
+/* =========================
+   DISCO
+========================= */
+
+.disco-css {
+  width: 34px;
+  height: 34px;
+
+  min-width: 34px;
+
+  border-radius: 50%;
+
+  position: relative;
+
+  background:
+    radial-gradient(circle, #111 0 14%, #e5e7eb 15% 22%, #111 23% 28%, var(--cor1) 29% 55%, var(--cor2) 56% 100%);
+}
+
+.disco-css::after {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+#botaoMusica.tocando .disco-css {
+  animation: girarDisco 1.2s linear infinite;
+}
+
+@keyframes girarDisco {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   PALETAS
+========================= */
+
+#paletaBox {
+  position: fixed;
+
+  top: 90px;
+  right: 20px;
+
+  z-index: 999;
+}
+
+#botaoPaleta {
+  border: none;
+
+  padding: 14px 18px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.14);
+
+  backdrop-filter: blur(16px);
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+#paletas {
+  margin-top: 12px;
+
+  padding: 14px;
+
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.1);
+
+  display: none;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+#paletas.paletas-aberto {
+  display: flex;
+}
+
+.cor {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  border: 2px solid rgba(255,255,255,0.35);
+}
+
+.cor-original {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+}
+
+.cor-red {
+  background: linear-gradient(135deg, #ef4444, #111111);
+}
+
+.cor-green {
+  background: linear-gradient(135deg, #22c55e, #14532d);
+}
+
+.cor-orange {
+  background: linear-gradient(135deg, #f97316, #7c2d12);
+}
+
+.cor-pink {
+  background: linear-gradient(135deg, #ec4899, #6d28d9);
+}
+
+.cor-black {
+  background: linear-gradient(135deg, #525252, #000000);
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: 100%;
+  }
+
+  .input-area {
+    grid-template-columns: 1fr;
+  }
+
+  .input-area button {
+    grid-column: auto;
+  }
+
+  .filtros,
+  .acoes {
+    flex-direction: column;
+  }
+}
+/* MODO FOCO */
+
+.modo-foco .status,
+.modo-foco .input-area,
+.modo-foco .filtros,
+.modo-foco h1::after {
+  display: none;
+}
+
+.modo-foco .container {
+  width: 580px;
+  background: rgba(0,0,0,0.35);
+}
+
+.modo-foco .acoes {
+  display: flex;
+}
